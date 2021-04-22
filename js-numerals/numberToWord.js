@@ -1,3 +1,11 @@
+const inputField = document.getElementById('quantity');
+const result = document.getElementById('result');
+const submitButton = document.getElementById('submitButton');
+
+
+inputField.onkeyup = () => {
+  result.innerHTML = numToWord(inputField.value);
+}
 function numToWord(number) {
 
   const digitToNineteen = [ '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
@@ -29,7 +37,7 @@ function numToWord(number) {
   if (numberString.length === 4) {
     return digitToNineteen[ numberString[ 0 ] ] + ' ' + 'thousand' + ' ' + digitToNineteen[ numberString[ 1 ] ] + ' ' + 'hundred' + ' and ' + tenthDigit[ numberString[ 2 ] ] + '-' + digitToNineteen[ numberString[ 3 ] ];
   }
-  
+
   if (numberString.length === 5) {
     if (numberString[ 0 ] === 1) {
       const twoFirst = 10 + Number(numberString[ 1 ]);
